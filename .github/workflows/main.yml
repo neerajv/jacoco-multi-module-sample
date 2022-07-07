@@ -44,5 +44,15 @@ jobs:
         status: 80
         color: 'blue,555,daf'
         path: badge.svg
-        
-    
+       
+    - name: Commit badge
+      run: |
+        git config --local user.email "neraj.virmani@gmail.com"
+        git config --local user.name "neerajv"
+        git add .github/badges/badge.svg
+        git commit -m "Add/Update badge"
+    - name: Push badge commit
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ steps.extract_branch.outputs.branch }}
