@@ -37,9 +37,12 @@ jobs:
         cd module3/target/site/jacoco-aggregate
         ls
       
-    - name: Add coverage to PR
-      id: jacoco
-      uses: madrapps/jacoco-report@v1.2
+    - name: Generate the badge SVG image
+      uses: emibcn/badge-action@v1
       with:
-          paths: /home/runner/work/jacoco-multi-module-sample/jacoco-multi-module-sample/module3/target/site/jacoco-aggregate/jacoco.xml
-          token: ${{ secrets.GITHUB_TOKEN }}
+        label: 'Test coverage'
+        status: 80
+        color: 'blue,555,daf'
+        path: badge.svg
+        
+    
