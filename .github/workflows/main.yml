@@ -34,7 +34,7 @@ jobs:
     - name: Experiment
       run:  |
         pwd
-        cd module3/target/site
+        cd module3/target/site/jacoco-aggregate
         ls
       
     - name: Add coverage to PR
