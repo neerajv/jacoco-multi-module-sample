@@ -36,25 +36,13 @@ jobs:
         pwd
         cd module3/target/site/jacoco-aggregate
         ls
-      
-    - name: Generate the badge SVG image
-      uses: emibcn/badge-action@v1
-      with:
-        label: 'Test coverage'
-        status: 80
-        color: 'blue,555,daf'
-        path: badge.svg
         
-    - name: Commit badge
-      run: |
-        git config --local user.email "neeraj.virmani@gmail.com"
-        git config --local user.name "neerajv"
-   
-    - name: Add coverage to PR
-      id: jacoco
-      uses: madrapps/jacoco-report@v1.2
+        
+    - name: Generate JaCoCo Badge
+      uses: cicirello/jacoco-badge-generator@v2
       with:
-        paths: /home/runner/work/jacoco-multi-module-sample/jacoco-multi-module-sample/module3/target/site/jacoco-aggregate/jacoco.xml
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ steps.extract_branch.outputs.branch }}
-     
+         generate-branches-badge: true
+         jacoco-csv-file: /home/runner/work/jacoco-multi-module-sample/jacoco-multi-module-sample/module3/target/site/jacoco-aggregate/jacocoTestReport.csv
+          
+          
+   
