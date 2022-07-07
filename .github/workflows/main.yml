@@ -44,5 +44,8 @@ jobs:
          generate-branches-badge: true
          jacoco-csv-file: module3/target/site/jacoco-aggregate/jacoco.csv
           
-          
-   
+       
+    - name: Experiment2
+      run:  |
+         pwd
+         ls
