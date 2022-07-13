@@ -37,6 +37,15 @@ jobs:
         cd module3/target/site/jacoco-aggregate
         ls
         
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+          name: Build-Files
+          path: module3/target/site/jacoco-aggregate/*      
+          
+    - name: Download all workflow run artifacts
+      uses: actions/download-artifact@v3
+        
         
     - name: Generate JaCoCo Badge
       uses: cicirello/jacoco-badge-generator@v2
